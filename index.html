@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
 </head>
+<style>
+  li{
+    list-style: none;
+  }
+</style>
 <body class="text-white" style="background: url(image/bg.jpg);">
     <h1 class="text-white font-weight-bold text-center my-5">TodoList</h1>
 
@@ -18,7 +23,9 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
     +
   </button>
-  <p id="todoName"></p>
+  <ul id="myList">
+
+  </ul>
             </div>
             <div class="col-4 text-center">asd</div>
             <div class="col-4 text-center">asd</div>
@@ -56,7 +63,7 @@
               </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" id="myText" >Add</button>
+          <button type="button" class="btn btn-primary" onclick="myText" >Add</button>
         </div>
       </div>
     </div>
@@ -75,14 +82,16 @@
 //   document.getElementById("demo").innerHTML = x;
 // }
 // getting input type=text value
-document.getElementById("myText").onclick = function() {
 
-    var i;
-for (i = 0; i < 3; i++) {
+
+onclick = function myText() {
+  var node = document.createElement("LI");
   var inputText = document.getElementById("input-text");
-  document.getElementById("todoName").innerHTML=(inputText.value);
-}
-
+  var asd = document.createTextNode(inputText.value);
+  node.appendChild(asd);
+document.getElementById("myList").appendChild(node);
+document.getElementById('input-text').value = ''
+ 
 }
 // getting select value
 // document.getElementById("myText").onclick = function() {
