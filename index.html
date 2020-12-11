@@ -18,10 +18,10 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
     +
   </button>
-  <p id="demo"></p>
+  <p id="todoName"></p>
             </div>
-            <div class="col-4">asd</div>
-            <div class="col-4">asd</div>
+            <div class="col-4 text-center">asd</div>
+            <div class="col-4 text-center">asd</div>
         </div>
     </div>
    
@@ -47,7 +47,7 @@
                 </div>
               </div> -->
               <div class="input-group mb-3">
-                <select class="custom-select" id="inputGroupSelect02">
+                <select class="custom-select" id="inputGroupSelect02 select">
                   <option selected>Days...</option>
                   <option value="1">One Day</option>
                   <option value="2">Two Days</option>
@@ -76,9 +76,19 @@
 // }
 // getting input type=text value
 document.getElementById("myText").onclick = function() {
+
+    var i;
+for (i = 0; i < 3; i++) {
   var inputText = document.getElementById("input-text");
-  document.getElementById("demo").innerHTML=(inputText.value);
+  document.getElementById("todoName").innerHTML=(inputText.value);
 }
+
+}
+// getting select value
+// document.getElementById("myText").onclick = function() {
+//   var select = document.getElementById("select");
+//   document.getElementById("todoName").innerHTML=(select.value); 
+// }
 </script>
 </body>
 </html>
