@@ -20,26 +20,39 @@
 
 
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">  +  </button>
+  
 
-    <div class="container d-flex justify-content-between align-content-center flex-nowrap overflow-hidden">
-          <div>
-            <h3>Not Completed</h3>
-          <ul class="notCompleted">
-            
-          </ul>
-          </div>
-          <div>
-            <h3>Completed</h3>
-          <ul class="completed">
-            
-          </ul>
-          </div>
-          <div>
-          <h3>Done</h3>
-          <ul class="done">
-            
-          </ul> 
+    <div class="container">
+          <div class="row">
+            <div class="col-4 border rounded bg-primary">
+              <div class=" d-flex justify-content-between align-content-center">
+                <h3 class="mb-0">ToDo</h3>
+                <button type="button" class="border-0 btn text-white" data-toggle="modal" data-target="#exampleModalCenter" style="background: transparent;"> <i class="fa fa-plus" aria-hidden="true"></i> </button>
+              </div>
+              <ul class="notCompleted pl-0 mb-0">
+                <li class="py-2">
+                  dsfdfasdfas
+                  <button class="border-0 btn text-white" style="background: transparent;">
+                    <i class="fa fa-close"></i>
+                  </button>
+                  <button class="border-0 btn text-white" data-toggle="modal" data-target="#exampleModalCenter2" style="background: transparent;">
+                    <i type="button" class="fa fa-plus" > </i>
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="col-4">
+              <h3 class="text-center">Progress </h3>
+            <ul class="completed">
+              
+            </ul>
+            </div>
+            <div class="col-4">
+            <h3 class="text-center">Done</h3>
+            <ul class="done">
+              
+            </ul> 
+            </div>
           </div>
     </div>
 

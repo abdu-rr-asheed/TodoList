@@ -1,89 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TodoList</title>
-    <!-- Bootstap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<style>
-  li{
-    list-style: none;
-  }
-</style>
-<body class="text-white" style="background: url(image/bg.jpg);">
-    <h1 class="text-white font-weight-bold text-center my-5">TodoList</h1>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-4">
-              <div class="d-flex justify-content-between align-items-center">
-                <h3 class="mb-0">TodoList</h3>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                      +
-                    </button>
-              </div>
-              <ul id="myList">
-
-              </ul>
-            </div>
-            <div class="col-4 text-center">asd</div>
-            <div class="col-4 text-center">asd</div>
-        </div>
-    </div>
-   
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title text-dark" id="exampleModalLongTitle">ADD TO DO LIST</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" >Add</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script>
-    $('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
-
-// function myFunction() {
-//   var x = document.getElementById("myText").value;
-//   document.getElementById("demo").innerHTML = x;
-// }
-// getting input type=text value
-
-
-onclick = function myText() {
-  var node = document.createElement("LI");
-  var inputText = document.getElementById("input-text");
-  var asd = document.createTextNode(inputText.value);
-  node.appendChild(asd);
-  document.getElementById("myList").appendChild(node);
-  document.getElementById('input-text').value = '';
- 
-}
-// getting select value
-// document.getElementById("myText").onclick = function() {
-//   var select = document.getElementById("select");
-//   document.getElementById("todoName").innerHTML=(select.value); 
-// }
-</script>
+<body>
+    <main>
+        <!-- user will input the task here -->
+        <form>
+            <input type="text" placeholder="Enter a task" id="userInput">
+            <button id="submit">Add to list</button>
+        </form>
+        <!-- four sections for tasks -->
+        <section id="container">
+            <section>
+                <h2 class=" h2-style gold">In Progress</h2>
+                <ul class="tasksSection" id="inProgress"></ul>
+            </section>
+            <section>
+                <h2 class="h2-style red">On Hold</h2>
+                <ul class="tasksSection" id="hold">
+                </ul>
+            </section>
+            <section>
+                <h2 class="h2-style blue">In Review</h2>
+                <ul class="tasksSection" id="review"></ul>
+            </section>
+            <section>
+                <h2 class="h2-style green">Approved</h2>
+                <ul class="tasksSection" id="Approved"></ul>
+            </section>
+        </section>
+    </main>
+    <!-- descriptions and notes for each task -->
+    <section id="descrpContainer">
+        <section id="descrpWrapper">
+            <textarea id="description" placeholder="Enter your notes about this task"></textarea>
+            <button id="cancel">Cancel</button>
+            <button id="save">Save Changes</button>
+        </section>
+    </section>
+    <script src="scripts.js"></script>
 </body>
+
 </html>
