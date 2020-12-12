@@ -9,62 +9,86 @@
   <!-- Bootstap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
+<style>
+  li{
+    list-style: none;
+  }
+</style>
 <body class="text-white" style="background: url(image/bg.jpg);">
 
   <h1 class="text-white font-weight-bold text-center my-5">TodoList</h1>
 
 
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-    +
-  </button>
-    <!-- <div class="addtask">
-      <input type="text" placeholder="Add a task">
-      <button>Add</button>
-    </div> -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">  +  </button>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-4">
-          <ul class="notCompleted">
+    <div class="container d-flex justify-content-between align-content-center flex-nowrap overflow-hidden">
+          <div>
             <h3>Not Completed</h3>
+          <ul class="notCompleted">
+            
           </ul>
-        </div>
-        <div class="col-4">
-          <ul class="completed">
+          </div>
+          <div>
             <h3>Completed</h3>
+          <ul class="completed">
+            
           </ul>
-        </div>
-        <div class="col-4">
+          </div>
+          <div>
+          <h3>Done</h3>
           <ul class="done">
-            <h3>Done</h3>
+            
           </ul> 
-        </div>
-      </div>
+          </div>
     </div>
 
     <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title text-dark" id="exampleModalLongTitle">ADD TO DO LIST</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="input-group addtask mb-3">
-              <input type="text" class="form-control" placeholder="Add a task">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-dark" id="exampleModalLongTitle">ADD TO DO LIST</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="input-group addtask mb-3">
+              
+                <input type="text" class="form-control" placeholder="Add a task">
+  
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
+  
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>   
+     <!-- Modal 2-->
+    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-dark" id="exampleModalLongTitle">ADD TO DO LIST</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+  
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
      
 
 
@@ -83,47 +107,51 @@
   })
 
 
-  const input = document.querySelector('input');
-  const btn = document.querySelector('.addtask > button');
+  var input = document.querySelector('input');
+  var btn = document.querySelector('.addtask > button');
 
   btn.addEventListener('click', addList);
 
   function addList(e){
-    const notCompleted = document.querySelector('.notCompleted');
-    const Completed = document.querySelector('.completed');
-    const Done = document.querySelector('.done');
+    var notCompleted = document.querySelector('.notCompleted');
+    var Completed = document.querySelector('.completed');
+    var Done = document.querySelector('.done');
 
-    const newLi = document.createElement('li');
-    const checkbtn = document.createElement('button');
-    const delbtn = document.createElement('button');
-    const dn = document.createElement('button');
+    var newLi = document.createElement('li');
+    var checkbtn = document.createElement('button');
+    var delbtn = document.createElement('button');
+    var dn = document.createElement('button');
+    var pop = document.createElement('button');
 
     checkbtn.innerHTML = '<i class="fa fa-check"></i>';
     delbtn.innerHTML = '<i class="fa fa-trash"></i>';
     dn.innerHTML = '<i class="fa fa-telegram"></i>';
+    pop.innerHTML = '<i type="button" class="fa fa-plus" data-toggle="modal" data-target="#exampleModalCenter2"> </i>';
 
     if(input.value !==''){
       newLi.textContent = input.value;
       input.value = '';
       notCompleted.appendChild(newLi);
-      newLi.appendChild(checkbtn);
+
+      // newLi.appendChild(checkbtn);
       newLi.appendChild(delbtn);
-      newLi.appendChild(dn);
+      newLi.appendChild(pop);
+      // newLi.appendChild(dn);
     }
 
     checkbtn.addEventListener('click',function(){
-      const parent = this.parentNode;
+      var parent = this.parentNode;
       parent.remove();
       Completed.appendChild(parent);
       // checkbtn.style.display = 'none';
     })
 
     delbtn.addEventListener('click',function(){
-      const parent = this.parentNode;
+      var parent = this.parentNode;
       parent.remove();
     })
     dn.addEventListener('click',function(){
-      const parent = this.parentNode;
+      var parent = this.parentNode;
       parent.remove();
       Done.appendChild(parent);
       // checkbtn.style.display = 'none';
