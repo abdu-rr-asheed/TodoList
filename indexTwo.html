@@ -13,6 +13,82 @@
   li{
     list-style: none;
   }
+  .box , .box li ,.modal-content{
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    margin: 0 auto;
+    padding: 20px;
+    
+    border: 2px solid #fff;
+    overflow-x: hidden;
+  }
+  .modal-content{
+    height: auto;
+    backdrop-filter: blur(20px);
+    border: 2px solid #fff;
+  }
+  .box ul{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .box li{
+    height: auto;
+    margin-top: 15px;
+    border: none;
+    background: rgb(255 255 255 / 52%);
+  }
+  .box h5{
+    text-transform: capitalize;
+    color: #1719a7;
+  }
+  .box h5{
+    text-transform: capitalize;
+    color: #1719a7;
+  }
+  p{
+    text-transform: capitalize;
+    color: #202279;
+    margin-bottom: 5px;
+    word-wrap: break-word;
+  }
+  p:nth-child(3){
+    text-transform: capitalize;
+    color: #292929b2;
+    margin-bottom: 5px;
+  }
+  .notCompleted {
+    position: relative;
+  }
+  .notCompleted button,.completed button,.done button{
+    position: absolute;
+    background: none;
+    border: none;
+    color: #fff;
+  }
+  .notCompleted button:last-child,.completed button:last-child,.done button:last-child{
+    top: 4px;
+    right: 4px;
+    color: rgb(0, 0, 255);
+  }
+  .notCompleted button:nth-last-child(2),.completed button:nth-last-child(2),.done button:nth-last-child(2){
+    bottom: 7px;
+    right: 7px;
+    color: #990000;
+  }
+  .form-control {
+    color: #ffffff;
+    background-color: #ffffffb3;
+}
+.box::-webkit-scrollbar {
+  display: none;
+}
+
+
 </style>
 <body class="text-white" style="background: url(image/bg.jpg);">
 
@@ -22,36 +98,36 @@
   <!-- Button trigger modal -->
   
 
-    <div class="container">
+    <div class="container-fluid">
           <div class="row">
-            <div class="col-4 border rounded bg-primary">
-              <div class=" d-flex justify-content-between align-content-center">
-                <h3 class="mb-0">ToDo</h3>
-                <button type="button" class="border-0 btn text-white" data-toggle="modal" data-target="#exampleModalCenter" style="background: transparent;"> <i class="fa fa-plus" aria-hidden="true"></i> </button>
+            <div class="col-4">
+              <div class="box">
+                <div class=" d-flex justify-content-between align-content-center">
+                  <h3 class="mb-0">ToDo</h3>
+                  <button type="button" class="border-0 btn text-white" data-toggle="modal" data-target="#exampleModalCenter" style="background: transparent;"> <i class="fa fa-plus" aria-hidden="true"></i> </button>
+                </div>
+                <ul class="notCompleted pl-0 mb-0">
+                  <!-- <li><h5>
+                    asdasd
+                  </h5><button><i class="fa fa-times"></i></button><button><i type="button" class="fa fa-pencil-square-o" data-toggle="modal" data-target="#exampleModalCenter2"> </i></button></li> -->
+                </ul>
               </div>
-              <ul class="notCompleted pl-0 mb-0">
-                <li class="py-2">
-                  dsfdfasdfas
-                  <button class="border-0 btn text-white" style="background: transparent;">
-                    <i class="fa fa-close"></i>
-                  </button>
-                  <button class="border-0 btn text-white" data-toggle="modal" data-target="#exampleModalCenter2" style="background: transparent;">
-                    <i type="button" class="fa fa-plus" > </i>
-                  </button>
-                </li>
-              </ul>
+            </div>
+            <div class="col-4 ">
+              <div class="box">
+                <h3 class="text-center">Doing... </h3>
+                <ul class="completed pl-0 mb-0">
+                  
+                </ul>
+              </div>
             </div>
             <div class="col-4">
-              <h3 class="text-center">Progress </h3>
-            <ul class="completed">
-              
-            </ul>
+            <div class="box">
+              <h3 class="text-center">Done</h3>
+              <ul class="done pl-0 mb-0">
+                
+              </ul> 
             </div>
-            <div class="col-4">
-            <h3 class="text-center">Done</h3>
-            <ul class="done">
-              
-            </ul> 
             </div>
           </div>
     </div>
@@ -61,43 +137,50 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title text-dark" id="exampleModalLongTitle">ADD TO DO LIST</h5>
+            <h5 class="modal-title text-white" id="exampleModalLongTitle">ADD TO DO LIST</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+              <span class="text-white" aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <div class="input-group addtask mb-3">
-              
-                <input type="text" class="form-control" placeholder="Add a task">
-  
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
-  
+            <div class="input-group addtask mb-3 ">
+              <input type="text" class="form-control Tdo" placeholder="Todo">
+            </div>
+            <div class="input-group addtask mb-3 ">
+              <input type="text" class="form-control desp" placeholder="Description">
+            </div>
+            <div class="input-group addtask mb-3 ">
+              <input type="number" class="form-control dte" placeholder="yyyy-mm-dd">
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button class="btn btn-primary" type="button"  id="button-addon2" data-dismiss="modal" aria-label="Close">Add</button>
           </div>
         </div>
       </div>
     </div>   
      <!-- Modal 2-->
-    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+     <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title text-dark" id="exampleModalLongTitle">ADD TO DO LIST</h5>
+            <h5 class="modal-title text-white" id="exampleModalLongTitle">Edit</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+              <span class="text-white" aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
+            <div class="input-group addtaskasd mb-3">
+              
+                <input type="text" class="form-control" placeholder="Edit">
 
-  
-            </div>
+              </div>
+              <ul class="status">
+
+              </ul>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button class="btn btn-primary" type="button" id="button-addon2s" >Add</button>
           </div>
         </div>
       </div>
@@ -115,59 +198,102 @@
 
 <script>
 
-  $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-  })
+  // $('#myModal').on('shown.bs.modal', function () {
+  //   $('#myInput').trigger('focus')
+  // })
 
 
-  var input = document.querySelector('input');
-  var btn = document.querySelector('.addtask > button');
+  var tdo = document.querySelector('.Tdo');
+  var desp = document.querySelector('.desp');
+  var dte = document.querySelector('.dte');
+  var btn = document.querySelector('#button-addon2');
 
   btn.addEventListener('click', addList);
+  
+  
+
+
 
   function addList(e){
     var notCompleted = document.querySelector('.notCompleted');
     var Completed = document.querySelector('.completed');
     var Done = document.querySelector('.done');
-
+    var status = document.querySelector('.status');
+    
+    var popLi = document.createElement('li');
     var newLi = document.createElement('li');
+    var newp = document.createElement('p');
+    var newpd = document.createElement('p');
     var checkbtn = document.createElement('button');
     var delbtn = document.createElement('button');
     var dn = document.createElement('button');
     var pop = document.createElement('button');
+    var h1 = document.createElement('h5');
 
-    checkbtn.innerHTML = '<i class="fa fa-check"></i>';
-    delbtn.innerHTML = '<i class="fa fa-trash"></i>';
-    dn.innerHTML = '<i class="fa fa-telegram"></i>';
-    pop.innerHTML = '<i type="button" class="fa fa-plus" data-toggle="modal" data-target="#exampleModalCenter2"> </i>';
 
-    if(input.value !==''){
-      newLi.textContent = input.value;
-      input.value = '';
+    var input = document.createElement('input');
+    input.value = 
+
+    checkbtn.innerHTML = '<i class="fa fa-spinner"></i>';
+    pop.innerHTML = '<i type="button" class="fa fa-pencil-square-o" data-toggle="modal" data-target="#exampleModalCenter2"> </i>';
+    // pop.innerHTML = '<i class="fa fa-pencil-square-o"> </i>';
+    delbtn.innerHTML = '<i class="fa fa-times"></i>';
+    dn.innerHTML = '<i class="fa fa-check"></i>';
+
+    if(tdo.value !==''){
+      h1.textContent = tdo.value;
+      newp.textContent = desp.value;
+      newpd.textContent = dte.value;
+      tdo.value = '';
+      desp.value = '';
+      dte.value = '';
+      newLi.appendChild(h1);
+      newLi.appendChild(newp);
+      newLi.appendChild(newpd);
       notCompleted.appendChild(newLi);
-
-      // newLi.appendChild(checkbtn);
+      status.appendChild(popLi);
+      popLi.appendChild(dn);
+      popLi.appendChild(checkbtn);
       newLi.appendChild(delbtn);
       newLi.appendChild(pop);
-      // newLi.appendChild(dn);
     }
-
+    
     checkbtn.addEventListener('click',function(){
       var parent = this.parentNode;
       parent.remove();
-      Completed.appendChild(parent);
+      notCompleted.appendChild(parent);
       // checkbtn.style.display = 'none';
+      // dn.style.display = "block";
+    });
+
+
+      
+    pop.addEventListener('click',function(){
+
+      status.appendChild(dn);
+
+
+
+      
+      // var parent = this.parentNode;
+      // parent.appendChild(status);
+      // parent.remove();
+      // status.appendChild(parent);
+      // checkbtn.style.display = 'none';
+      // dn.style.display = "block";
+    });
+
+
+      
+      delbtn.addEventListener('click',function(){
+      var parent = this.parentNode;
+      parent.remove();
     })
 
-    delbtn.addEventListener('click',function(){
-      var parent = this.parentNode;
-      parent.remove();
-    })
     dn.addEventListener('click',function(){
       var parent = this.parentNode;
-      parent.remove();
+      parent.remove(newLi);
       Done.appendChild(parent);
-      // checkbtn.style.display = 'none';
     })
   }
 
