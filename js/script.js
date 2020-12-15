@@ -123,7 +123,7 @@
 
 
       // pop.addEventListener('click',function(){});
-      pop.
+      
 
 
         if(checkbtn.value == 'Todo'){
