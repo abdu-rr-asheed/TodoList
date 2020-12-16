@@ -1,4 +1,4 @@
-
+// input felds & buttons
   let todoHead = document.querySelector('.Tdo');
   let tododis = document.querySelector('.desp');
   let tododte = document.querySelector('.dte');
@@ -7,29 +7,140 @@
     
 
 
-  addbtn.addEventListener("click", addList);
-
+addbtn.addEventListener("click", addList);
+let todoArr = [];
 function addList() {
   
-  var todoclassa = document.querySelector('.todoclass');
+  // Three colums
+  var todoclass = document.querySelector('.todoclass');
   var doingclass = document.querySelector('.doingclass');
   var Done = document.querySelector('.doneclass');
 
-  
+  if(todoHead.value !== ''){
 
-  var listTodo = {todo:"", description:"", date:""};
+    // create an Object
+    var listTodo = 
+      { 
+        todo:"",
+        description:"",
+        date:""
+      };
+        
+    // textBox Values Assign to Array
+    listTodo.todo = todoHead.value;
+    listTodo.description = tododis.value;
+    listTodo.date = tododte.value;
+      
+    // create Html tag
+    var newli = document.createElement('li');
+    var newh5 = document.createElement('h5');
+    var newdesp = document.createElement('p')
+    var newdate = document.createElement('p');
+    var newdel = document.createElement('button');
+    var newedit = document.createElement('button');
+    // var newdone = document.createElement('button');
 
-  listTodo.todo = todoHead.value;
-  listTodo.description = tododis.value;
-  listTodo.date = tododte.value;
+    //button innerhtml
+    newdel.innerHTML = '<i class="fa fa-times"></i>';
+    // newedit.innerHTML = '<i class="fa fa-spinner"></i>';
+    // newdone.innerHTML = '<i class="fa fa-check"></i>';
+    newedit.innerHTML = '<i type="button" class="fa fa-pencil-square-o" data-toggle="modal" data-target="#exampleModalCenter2"> </i>';
 
-  var newli = document.createElement('li');
-  todoclassa.appendChild(newli);
-  newli.appendChild(listTodo.todo);
-  
+    // Appendchild to colum Todo
+    todoclass.appendChild(newli);
 
-  console.log(listTodo.todo,listTodo.description,listTodo.date);
+    // newli Appendchild to Todo , description , Date
+    newli.appendChild(newh5);
+    newli.appendChild(newdesp);
+    newli.appendChild(newdate);
+    // newli.appendChild(newdone);
+    newli.appendChild(newdel);
+    newli.appendChild(newedit);
+    
+
+    //value Assingn
+    
+    
+
+    //Add todoArr
+    todoArr.push(listTodo);
+    
+
+    // clear TextBox
+    todoHead.value = '';
+    tododis.value = '';
+    tododte.value = '';
+
+    newli.id = (todoArr.length-1);
+
+    //delete Button
+    newdel.addEventListener('click',function(){
+
+      var parent = this.parentElement;
+      parent.remove();
+    })
+    
+
+    newh5.innerHTML = listTodo.todo;
+    newdesp.innerHTML = listTodo.description;
+    newdate.innerHTML = listTodo.date;
+
+    // console.log(todoArr[]
+  }
+  newedit.addEventListener('click',function(){
+
+    let editHead = document.querySelector('#editinput');
+    let editdis = document.querySelector('#editdis');
+    let editdte = document.querySelector('#editdate');
+
+    var parent2 = this.parentElement;
+    // console.log(todoArr[parent2.id].todo)
+    
+    editHead.value = todoArr[parent2.id].todo
+    editdis.value = todoArr[parent2.id].description
+    editdte.value = todoArr[parent2.id].date
+
+    Editbtn.addEventListener('click' ,function(){
+
+      todoArr[parent2.id].todo = editHead.value
+      todoArr[parent2.id].description = editdis.value
+      todoArr[parent2.id].date = editdte.value
+
+      console.log(todoArr[parent2.id].todo);
+      console.log(todoArr[parent2.id].description)
+      console.log(todoArr[parent2.id].date);
+
+      newh5.innerHTML = todoArr[parent2.id].todo;
+      newdesp.innerHTML = todoArr[parent2.id].description;
+      newdate.innerHTML = todoArr[parent2.id].date;
+
+      // parent2.remove();
+    
+
+     
+
+      
+
+
+
+      
+      
+    })
+
+
+
+    
+
+
+    
+  })
+
 }
+
+
+  
+
+ 
 
   
   

@@ -1,4 +1,4 @@
-li{
+  li{
     list-style: none;
   }
   .box , .box li ,.modal-content{
@@ -50,24 +50,29 @@ li{
     margin-bottom: 5px;
     font-size: 11px;
   }
-  .notCompleted {
+  .todoclass {
     position: relative;
   }
-  .notCompleted button,.completed button,.done button{
+  .todoclass button,.doingclass button,.doneclass button{
     position: absolute;
     background: none;
     border: none;
     color: #fff;
   }
-  .notCompleted button:last-child,.completed button:last-child,.done button:last-child{
+  .todoclass button:last-child,.doingclass button:last-child,.doneclass button:last-child{
     top: 4px;
     right: 4px;
     color: rgb(0, 0, 255);
   }
-  .notCompleted button:nth-last-child(2),.completed button:nth-last-child(2),.done button:nth-last-child(2){
+  .todoclass button:nth-last-child(2),.doingclass button:nth-last-child(2),.doneclass button:nth-last-child(2){
     bottom: 7px;
     right: 7px;
     color: #990000;
+  }
+  .todoclass button:nth-last-child(3),.doingclass button:nth-last-child(3),.doneclass button:nth-last-child(3){
+    top: 4px;
+    right: 26px;
+    color: #d9038b;
   }
   .form-control {
     color: #ffffff;
