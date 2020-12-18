@@ -34,6 +34,7 @@
 
 
     
+    newLi.classList.add("mmm")
 
     // checkbtn.innerHTML = '<i class="fa fa-spinner"></i>';
     pop.innerHTML = '<i type="button" class="fa fa-pencil-square-o" data-toggle="modal" data-target="#exampleModalCenter2"> </i>';
@@ -84,6 +85,29 @@
     //   status.appendChild(inedp);
     //   console.log(ined);
     //   console.log(inedp);
+        // input.value = (h1.innerHTML);
+      
+        if(tdo.value !==''){
+          h1.innerHTML = input.value;
+          newp.innerHTML = editDis.value;
+          newpd.innerHTML = editDate.value;
+          tdo.value = '';
+          desp.value = '';
+          dte.value = '';
+          newLi.appendChild(h1);
+          newLi.appendChild(newp);
+          newLi.appendChild(newpd);
+          notCompleted.appendChild(newLi);
+        //   popLi.appendChild(dn);
+        //   popLi.appendChild(checkbtn);
+          newLi.appendChild(delbtn);
+          newLi.appendChild(pop);
+          newLi.appendChild(pop);
+        }
+      
+      
+      
+      
         input.value = (h1.innerHTML);
         editDis.value = (newp.innerHTML);
         editDate.value = (newpd.innerHTML);
@@ -92,7 +116,6 @@
 
 
 
-         
         // var parent = this.parentNode;
       // parent.appendChild(status);
       // parent.remove();
@@ -101,6 +124,7 @@
       // dn.style.display = "block";
       btnEdit.addEventListener('click', addEdit);
       function addEdit(e){
+        pop.removeEventListener('click', function(){});
         // if(dn.value=='Done'){
         //     var parent = newLi.parentNode;
         //     parent.remove();
@@ -116,35 +140,38 @@
         //     notCompleted.appendChild(parent);
         // }
 
-
+          
         h1.innerHTML = input.value;
-      newp.innerHTML = editDis.value;
-      newpd.innerHTML = editDate.value;
+        newp.innerHTML = editDis.value;
+        newpd.innerHTML = editDate.value;
+
 
 
       // pop.addEventListener('click',function(){});
-      pop.
+      
+      // var dn = document.querySelector('.donest');
+      // var checkbtn = document.querySelector('.todost');
+      // var doing = document.querySelector('.doingst');
+  
 
+      //   if(checkbtn.value == 'Todo'){
+      //     var parent = h1.parentElement;
+      //     parent.remove();
+      //     notCompleted.appendChild(parent);
 
-        if(checkbtn.value == 'Todo'){
+      //   }
+      //   else if(doing.value == 'Doing'){
 
-          var parent = delbtn.parentNode;
-          parent.remove();
-          notCompleted.appendChild(parent);
+      //       var parent = h1.parentElement;
+      //       parent.remove();
+      //       Completed.appendChild(parent);
+      //   }else if(dn.value=='Done'){
 
-        }
-        else if(doing.value == 'Doing'){
+      //     var parent = h1.parentElement;
+      //     parent.remove();
+      //     Done.appendChild(parent);
 
-            var parent = delbtn.parentNode;
-            parent.remove();
-            Completed.appendChild(parent);
-        }else if(dn.value=='Done'){
-
-          var parent = delbtn.parentNode;
-          parent.remove();
-          Done.appendChild(parent);
-
-        }
+      //   }
 
 
       
@@ -154,10 +181,7 @@
 
     }
     });
-    var dn = document.querySelector('.donest');
-    var checkbtn = document.querySelector('.todost');
-    var doing = document.querySelector('.doingst');
-
+    
     // dn.addEventListener('click',function(){
         
     //   })
@@ -165,7 +189,7 @@
 
       
       delbtn.addEventListener('click',function(){
-      var parent = this.parentNode;
+      var parent = this.parentElement;
       parent.remove();  
     })
 
