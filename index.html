@@ -25,7 +25,7 @@
                   <h3 class="mb-0">ToDo</h3>
                   <button type="button" class="border-0 btn text-white" data-toggle="modal" data-target="#exampleModalCenter" style="background: transparent;"> <i class="fa fa-plus" aria-hidden="true"></i> </button>
                 </div>
-                <ul class="todoclass pl-0 mb-0">
+                <ul class="todoclass pl-0 mb-0  drag" id="uli">
                   <!-- add todo -->
                 </ul>
               </div>
@@ -33,7 +33,7 @@
             <div class="col-4 ">
               <div class="box">
                 <h3 class="text-center">Doing... </h3>
-                <ul class="doingclass pl-0 mb-0">
+                <ul class="doingclass pl-0 mb-0 drag" id="uli">
                   <!-- Doing -->
                 </ul>
               </div>
@@ -66,9 +66,10 @@
             <div class="input-group addtask mb-3 ">
               <input type="text" class="form-control desp" placeholder="Description">
             </div>
-            <div class="input-group addtask mb-3 ">
+            <div class="input-group mb-3 ">
               <input type="text " class="form-control dte" placeholder="yyyy-mm-dd">
             </div>
+            
           </div>
           <div class="modal-footer">
             <button class="btn btn-primary" type="button"  id="button-addon2" data-dismiss="modal" aria-label="Close">Add</button>
@@ -106,9 +107,9 @@
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Status</label>
                 <select class="form-control" id="exampleFormControlSelect1">
-                  <option class="todost">Todo</option>
-                  <option class="doingst">Doing</option>  
-                  <option class="donest">Done</option>
+                  <option class="todost" value="todoSt">Todo</option>
+                  <option class="doingst" value="doingSt" >Doing</option>  
+                  <option class="donest" value="doneSt">Done</option>
                 </select>
               </div>
               <ul class="status">
@@ -130,6 +131,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/script.js"></script>
     
 
