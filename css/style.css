@@ -30,8 +30,7 @@ li {
   border: 2px solid #fff;
 }
 .box ul {
-  display: flex;
-  flex-direction: column;
+  max-height: 30px;
 }
 .box li {
   height: auto;

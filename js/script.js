@@ -1,10 +1,17 @@
 //jquary
-$( function() {
-  $( ".todoclass" ).sortable();
-  $( ".doingclass" ).sortable();
-  $(".doneclass").sortable();
+// $( function() {
+//   $( ".todoclass" ).sortable({ axis: "y" ,cursor: "move"});
+//   $( ".doingclass" ).sortable();
+//   $(".doneclass").sortable();
+// });
+$("#datepicker").datepicker();
+
+$( ".col-md-4 > .box > ul" ).sortable({
+  connectWith: ".col-md-4 .box ul",
+  handle: "li",
+  // placeholder: "portlet-placeholder ui-corner-all",
+  cursor: "move"
 });
-$( "#datepicker" ).datepicker();
 
 // Add input
 let todoinput = document.querySelector(".Tdo");
