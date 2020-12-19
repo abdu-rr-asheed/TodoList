@@ -78,7 +78,7 @@ function refreshArr() {
     //Adding Array values to html tag
     newh5.innerHTML = todoArr[i].todo;
     newdesp.innerHTML = todoArr[i].Description;
-    newdate.innerHTML = todoArr[i].date;
+    newdate.innerHTML = "Date : " + todoArr[i].date;
 
     //Delete Click icon Event 
     newdel.addEventListener('click', delbutton);
@@ -138,14 +138,6 @@ function editIconbutton(e) {
     document.getElementById("stIDto").style.display = "block";
     document.getElementById("stIDdt").style.display = "block";
   }
-
-  
-  
-  // document.getElementById("stIDdp").style.display = "none";
-  
-  // document.getElementById("stIDdt").style.display = "none";
-  
-
 }
 
 // Todo Edit model Button 
@@ -154,7 +146,6 @@ editbtn.addEventListener('click', editbutton);
 
   function editbutton() {
 
-    // console.log(checkid);
     todoArr[checkid].todo = TodoEditnput.value;
     todoArr[checkid].Description = despEditinput.value;
     todoArr[checkid].date = dteEditinput.value;
