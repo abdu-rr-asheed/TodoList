@@ -1,3 +1,10 @@
+div.ui-datepicker {
+  z-index: 1051;
+  background: white;
+}
+.modal-backdrop {
+  z-index: 2;
+}
 li {
   list-style: none;
 }

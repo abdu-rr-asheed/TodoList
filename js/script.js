@@ -3,8 +3,9 @@ $( function() {
   $( ".todoclass" ).sortable();
   $( ".doingclass" ).sortable();
   $(".doneclass").sortable();
-  // $( ".datetime" ).datepicker();
+  
 });
+$( "#datepicker" ).datepicker();
 
 
 // Add input
@@ -23,7 +24,7 @@ let dteEditinput = document.querySelector("#editdate");
 //* Edit button
 let editbtn = document.querySelector("#button-addon2add");
 
-//* Edit button
+//* Status Drop down button
 let status = document.querySelector(".status");
 
 // Three Colums

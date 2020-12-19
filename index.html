@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="text-white" style="background: url(image/bg.jpg);">
+<body class="" style="background: url(image/bg.jpg);">
 
   <h1 class="text-white font-weight-bold text-center my-5">TodoList</h1>
   <!-- Button trigger modal -->
@@ -22,7 +22,7 @@
             <div class="col-4">
               <div class="box">
                 <div class=" d-flex justify-content-between align-content-center">
-                  <h3 class="mb-0">ToDo</h3>
+                  <h3 class="mb-0 text-white">ToDo</h3>
                   <button type="button" class="border-0 btn text-white" data-toggle="modal" data-target="#exampleModalCenter" style="background: transparent;"> <i class="fa fa-plus" aria-hidden="true"></i> </button>
                 </div>
                 <ul class="todoclass pl-0 mb-0  drag" id="uli">
@@ -32,7 +32,7 @@
             </div>
             <div class="col-4 ">
               <div class="box">
-                <h3 class="text-center">Doing... </h3>
+                <h3 class="text-center text-white">Doing... </h3>
                 <ul class="doingclass pl-0 mb-0 drag" id="uli">
                   <!-- Doing -->
                 </ul>
@@ -40,7 +40,7 @@
             </div>
             <div class="col-4">
               <div class="box">
-                <h3 class="text-center">Done</h3>
+                <h3 class="text-center text-white">Done</h3>
                 <ul class="doneclass pl-0 mb-0">
                   <!-- done -->
                 </ul> 
@@ -50,7 +50,7 @@
     </div>
 
     <!-- Todo Add Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="z-index: 3;">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -67,7 +67,10 @@
               <input type="text" class="form-control desp" placeholder="Description">
             </div>
             <div class="input-group mb-3 ">
-              <input type="text " class="form-control dte" placeholder="yyyy-mm-dd">
+              <input type="text " class="form-control dte" id="datepicker" placeholder="YYYY-MM-DD">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="button-date"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+              </div>
             </div>
             
           </div>
@@ -102,6 +105,9 @@
             <div class="input-group editdate mb-3">
               
                 <input type="text" id="editdate" class="form-control" placeholder="Edit">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" id="button-date"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+                </div>
 
               </div>
               <div class="form-group">
@@ -119,8 +125,6 @@
         </div>
       </div>
 </div>
-     
-
 
 
 
