@@ -23,6 +23,9 @@ let dteEditinput = document.querySelector("#editdate");
 //* Edit button
 let editbtn = document.querySelector("#button-addon2add");
 
+//* Edit button
+let status = document.querySelector(".status");
+
 // Three Colums
 let todoclass = document.querySelector(".todoclass")
 let doingclass = document.querySelector(".doingclass")
@@ -43,6 +46,8 @@ function refreshArr() {
   
   for (let i = todoArr.length-1 ; i >= 0; i--) {
 
+    
+
     //Create element
     var newli = document.createElement('li');
     var newh5 = document.createElement('h5');
@@ -55,7 +60,7 @@ function refreshArr() {
     newli.id = (i);
     
     //Apend element
-    todoclass.appendChild(newli);
+    
     newli.appendChild(newh5);
     newli.appendChild(newdesp);
     newli.appendChild(newdate);
@@ -65,6 +70,14 @@ function refreshArr() {
     //Delete and Edit innerHtml
     newdel.innerHTML = '<i class="fa fa-times"></i>';
     newedit.innerHTML = '<i type="button" class="fa fa-pencil-square-o" data-toggle="modal" data-target="#exampleModalCenter2"> </i>';
+
+    if (todoArr[i].status == "doneSt") {
+      doneclass.appendChild(newli);
+    }else if (todoArr[i].status == "doingSt") {
+      doingclass.appendChild(newli);
+    } else {
+      todoclass.appendChild(newli);
+    }
 
     //Adding Array values to html tag
     newh5.innerHTML = todoArr[i].todo;
@@ -89,7 +102,8 @@ function addbutton() {
     listTodo = {
       todo: "",
       Description: "",
-      date: ""
+      date: "",
+      status: "todoSt"
     };
     
     listTodo.todo = todoinput.value;
@@ -98,6 +112,8 @@ function addbutton() {
     
     todoArr.push(listTodo)
     todoclass.innerHTML = '';
+    doingclass.innerHTML = '';
+    doneclass.innerHTML = '';
     todoinput.value = '';
     despinput.value = '';
     dteinput.value = '';
@@ -116,6 +132,7 @@ function editIconbutton(e) {
   TodoEditnput.value = todoArr[checkid].todo;
   despEditinput.value = todoArr[checkid].Description;
   dteEditinput.value = todoArr[checkid].date;
+  status.value = todoArr[checkid].status;
 
 }
 
@@ -125,13 +142,18 @@ editbtn.addEventListener('click', editbutton);
 
   function editbutton() {
 
-  console.log(checkid);
-  todoArr[checkid].todo = TodoEditnput.value;
-  todoArr[checkid].Description = despEditinput.value;
-  todoArr[checkid].date = dteEditinput.value;
-  
-  todoclass.innerHTML = '';
-  refreshArr();
+    // console.log(checkid);
+    todoArr[checkid].todo = TodoEditnput.value;
+    todoArr[checkid].Description = despEditinput.value;
+    todoArr[checkid].date = dteEditinput.value;
+    todoArr[checkid].status = status.value;
+
+    console.log(status.value)
+    
+    todoclass.innerHTML = '';
+    doingclass.innerHTML = '';
+    doneclass.innerHTML = '';
+    refreshArr();
 
 }
 
@@ -141,6 +163,8 @@ function delbutton() {
   todoArr.splice(parent.id, 1);
 
   todoclass.innerHTML = '';
+  doingclass.innerHTML = '';
+  doneclass.innerHTML = '';
   refreshArr();
 }
 
