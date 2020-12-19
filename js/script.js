@@ -3,10 +3,8 @@ $( function() {
   $( ".todoclass" ).sortable();
   $( ".doingclass" ).sortable();
   $(".doneclass").sortable();
-  
 });
 $( "#datepicker" ).datepicker();
-
 
 // Add input
 let todoinput = document.querySelector(".Tdo");
@@ -33,8 +31,6 @@ let doingclass = document.querySelector(".doingclass")
 let doneclass = document.querySelector(".doneclass")
 
 
-
-
 // ! Parent Array (Todo)
 let todoArr = [];
 
@@ -46,8 +42,6 @@ refreshArr();
 function refreshArr() {
   
   for (let i = todoArr.length-1 ; i >= 0; i--) {
-
-    
 
     //Create element
     var newli = document.createElement('li');
@@ -61,7 +55,6 @@ function refreshArr() {
     newli.id = (i);
     
     //Apend element
-    
     newli.appendChild(newh5);
     newli.appendChild(newdesp);
     newli.appendChild(newdate);
@@ -72,8 +65,10 @@ function refreshArr() {
     newdel.innerHTML = '<i class="fa fa-times"></i>';
     newedit.innerHTML = '<i type="button" class="fa fa-pencil-square-o" data-toggle="modal" data-target="#exampleModalCenter2"> </i>';
 
+    // status Checking
     if (todoArr[i].status == "doneSt") {
       doneclass.appendChild(newli);
+
     }else if (todoArr[i].status == "doingSt") {
       doingclass.appendChild(newli);
     } else {
@@ -95,7 +90,6 @@ function refreshArr() {
 }
 
 // Todo Add Button 
-
 addbtn.addEventListener('click', addbutton);
 
 function addbutton() {
@@ -135,6 +129,23 @@ function editIconbutton(e) {
   dteEditinput.value = todoArr[checkid].date;
   status.value = todoArr[checkid].status;
 
+  console.log(status.value)
+
+  if (status.value == "todoSt") {
+    document.getElementById("stIDto").style.display = "none";
+    document.getElementById("stIDdt").style.display = "none";
+  } else if (status.value == "doingSt") {
+    document.getElementById("stIDto").style.display = "block";
+    document.getElementById("stIDdt").style.display = "block";
+  }
+
+  
+  
+  // document.getElementById("stIDdp").style.display = "none";
+  
+  // document.getElementById("stIDdt").style.display = "none";
+  
+
 }
 
 // Todo Edit model Button 
@@ -148,8 +159,6 @@ editbtn.addEventListener('click', editbutton);
     todoArr[checkid].Description = despEditinput.value;
     todoArr[checkid].date = dteEditinput.value;
     todoArr[checkid].status = status.value;
-
-    console.log(status.value)
     
     todoclass.innerHTML = '';
     doingclass.innerHTML = '';
