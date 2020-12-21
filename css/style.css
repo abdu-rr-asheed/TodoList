@@ -13,9 +13,6 @@ button:focus {
 li {
   list-style: none;
 }
-.col-md-4.col-12 {
-  z-index: 1;
-}
 .box,
 .box li,
 .modal-content {
@@ -107,4 +104,8 @@ p:nth-child(3) {
 .form-control {
   color: #000000;
   background-color: #ffffffb3;
+}
+
+.layer {
+  z-index: 0;
 }
