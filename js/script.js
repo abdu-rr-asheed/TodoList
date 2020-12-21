@@ -3,23 +3,21 @@ $( function() {
   $( ".todoclass" ).sortable();
   $( ".doingclass" ).sortable();
   $(".doneclass").sortable();
-  $( "#datepicker" ).datepicker();
-  $( "#datepicker2" ).datepicker();
 });
 
 
 // Add input
-let todoinput = document.querySelector(".Tdo");
-let despinput = document.querySelector(".desp");
-let dteinput = document.querySelector(".dte");
+let titleinput = document.querySelector(".Tdo");
+let descriptioninput = document.querySelector(".desp");
+let dateinput = document.querySelector(".dte");
 
 //* Add button
 let addbtn = document.querySelector("#button-addon2");
 
 // Edit input 
-let TodoEditnput = document.querySelector("#editinput");
-let despEditinput = document.querySelector("#editdis");
-let dteEditinput = document.querySelector("#editdate");
+let titleEditnput = document.querySelector("#editinput");
+let descriptionEditnput = document.querySelector("#editdis");
+let dateEditnput = document.querySelector("#editdate");
 
 //* Edit button
 let editbtn = document.querySelector("#button-addon2add");
@@ -37,7 +35,7 @@ let doneclass = document.querySelector(".doneclass")
 
 
 // ! Parent Array (Todo)
-let todoArr = [];
+const todoArr = [];
 
 // ? Object Todo -Description - Date
 let listTodo 
@@ -99,10 +97,10 @@ addbtn.addEventListener('click', addbutton);
 
 function addbutton() {
 
-  if (todoinput.value.trim() == '' || dteinput.value.trim() == '' ) {
+  if (titleinput.value.trim() == '' || dateinput.value.trim() == '' ) {
     alert("Must Insert Title and Date");
   }
-  if (todoinput.value.trim() !== '' && dteinput.value.trim() !== '' ) {
+  if (titleinput.value.trim() !== '' && dateinput.value.trim() !== '' ) {
     listTodo = {
       todo: "",
       Description: "",
@@ -110,18 +108,18 @@ function addbutton() {
       status: "todoSt"
     };
     
-    listTodo.todo = todoinput.value;
-    listTodo.Description = despinput.value;
-    listTodo.date = dteinput.value;
+    listTodo.todo = titleinput.value;
+    listTodo.Description = descriptioninput.value;
+    listTodo.date = dateinput.value;
     
     todoArr.push(listTodo)
     todoclass.innerHTML = '';
     doingclass.innerHTML = '';
     doneclass.innerHTML = '';
-    todoinput.value = '';
-    despinput.value = '';
-    dteinput.value = '';
-    todoinput.focus();
+    titleinput.value = '';
+    descriptioninput.value = '';
+    dateinput.value = '';
+    titleinput.focus();
     refreshArr();
   }
 }
@@ -134,9 +132,9 @@ var checkid;
 function editIconbutton(e) {
 
   checkid = this.parentElement.id;
-  TodoEditnput.value = todoArr[checkid].todo;
-  despEditinput.value = todoArr[checkid].Description;
-  dteEditinput.value = todoArr[checkid].date;
+  titleEditnput.value = todoArr[checkid].todo;
+  descriptionEditnput.value = todoArr[checkid].Description;
+  dateEditnput.value = todoArr[checkid].date;
   status.value = todoArr[checkid].status;
   
   if (status.value == "todoSt") {
@@ -154,13 +152,13 @@ editbtn.addEventListener('click', editbutton);
 
 function editbutton() {
   
-  if (TodoEditnput.value.trim() == '' || dteEditinput.value.trim() == '' ) {
+  if (titleEditnput.value.trim() == '' || dateEditnput.value.trim() == '' ) {
     alert("Must Insert Title and Date");
   }
-  if (TodoEditnput.value.trim() !== '' && dteEditinput.value.trim() !== '') {
-    todoArr[checkid].todo = TodoEditnput.value;
-    todoArr[checkid].Description = despEditinput.value;
-    todoArr[checkid].date = dteEditinput.value;
+  if (titleEditnput.value.trim() !== '' && dateEditnput.value.trim() !== '') {
+    todoArr[checkid].todo = titleEditnput.value;
+    todoArr[checkid].Description = descriptionEditnput.value;
+    todoArr[checkid].date = dateEditnput.value;
     todoArr[checkid].status = status.value;
     
     todoclass.innerHTML = '';
@@ -188,7 +186,7 @@ function editbutton() {
 titleclose.addEventListener('click', titClose);
   
 function titClose() {
-  todoinput.value = '';
-  despinput.value = '';
-  dteinput.value = '';
+  titleinput.value = '';
+  descriptioninput.value = '';
+  dateinput.value = '';
 }
