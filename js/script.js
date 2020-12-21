@@ -2,8 +2,7 @@
 $( function() {
   $( ".col-md-4 > .box > ul" ).sortable({
     connectWith: ".col-md-4 .box ul",
-    cursor: "move",
-    accept: ".col-md-4 .box ul",
+    cursor: "move"
   });
 });
 
@@ -131,7 +130,7 @@ var checkid;
 
 // Todo Edit icon Button 
 
-function editIconbutton(e) {
+function editIconbutton() {
 
   checkid = this.parentElement.id;
   titleEditnput.value = todoArr[checkid].todo;
@@ -139,10 +138,12 @@ function editIconbutton(e) {
   dateEditnput.value = todoArr[checkid].date;
   status.value = todoArr[checkid].status;
   
-  if (status.value == "todoSt") {
+  console.log(checkid);
+
+  if (this.parentElement.parentElement.id == "todoid") {
     document.getElementById("stIDto").style.display = "none";
     document.getElementById("stIDdt").style.display = "none";
-  } else if (status.value == "doingSt") {
+  } else if (this.parentElement.parentElement.id == "doingid") {
     document.getElementById("stIDto").style.display = "block";
     document.getElementById("stIDdt").style.display = "block";
   }
@@ -167,6 +168,7 @@ function editbutton() {
     doingclass.innerHTML = '';
     doneclass.innerHTML = '';
     refreshArr();
+
   }
     
     
