@@ -128,22 +128,25 @@ function addbutton() {
 // cheaking ID
 var checkid;
 
+
 // Todo Edit icon Button 
 
 function editIconbutton() {
 
   checkid = this.parentElement.id;
+
   titleEditnput.value = todoArr[checkid].todo;
   descriptionEditnput.value = todoArr[checkid].Description;
   dateEditnput.value = todoArr[checkid].date;
   status.value = todoArr[checkid].status;
   
-  console.log(checkid);
 
-  if (this.parentElement.parentElement.id == "todoid") {
+  var checkColumeid = this.parentElement.parentElement.id;
+
+  if (checkColumeid == "todoid") {
     document.getElementById("stIDto").style.display = "none";
     document.getElementById("stIDdt").style.display = "none";
-  } else if (this.parentElement.parentElement.id == "doingid") {
+  } else if (checkColumeid == "doingid") {
     document.getElementById("stIDto").style.display = "block";
     document.getElementById("stIDdt").style.display = "block";
   }
@@ -168,6 +171,22 @@ function editbutton() {
     doingclass.innerHTML = '';
     doneclass.innerHTML = '';
     refreshArr();
+
+    alert("updated");
+
+    if (todoArr[checkid].status == "todoSt") {
+      document.getElementById("stIDto").style.display = "block";
+      document.getElementById("stIDdp").style.display = "block";
+      document.getElementById("stIDdt").style.display = "none";
+    } else if (todoArr[checkid].status == "doingSt") {
+      document.getElementById("stIDto").style.display = "block";
+      document.getElementById("stIDdp").style.display = "block";
+      document.getElementById("stIDdt").style.display = "block";
+    } else if (todoArr[checkid].status == "doneSt") {
+      document.getElementById("stIDto").style.display = "block";
+      document.getElementById("stIDdp").style.display = "block";
+      document.getElementById("stIDdt").style.display = "none";
+    }
 
   }
     
