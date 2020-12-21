@@ -1,7 +1,11 @@
-div.ui-datepicker {
-  z-index: 1051;
-  background: white;
+body {
+  background: url(/image/bg.jpg);
 }
+
+button:focus {
+  outline: 0 auto -webkit-focus-ring-color;
+}
+
 .modal-backdrop {
   z-index: 2;
 }

@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="" style="background: url(image/bg.jpg);background-position: center;background-size: cover; background-attachment: fixed;">
+<body>
 
   <h1 class="text-white font-weight-bold text-center my-md-5 my-3">TodoList</h1>
   <!-- Button trigger modal -->
@@ -54,29 +54,35 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title text-white" id="exampleModalLongTitle">ADD TO DO LIST</h5>
+            <h5 class="modal-title text-white" id="exampleModalLongTitle">Add Your Task</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span class="text-white" aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <div class="input-group addtask mb-3 ">
-              <input type="text" class="form-control Tdo" placeholder="Todo">
-            </div>
-            <div class="input-group addtask mb-3 ">
-              <input type="text" class="form-control desp" placeholder="Description">
-            </div>
-            <div class="input-group mb-3 ">
-              <input type="text " class="form-control dte" id="datepicker" placeholder="YYYY-MM-DD">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="button-date"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+            <form>
+              <div>
+                <div>
+                  <label class="text-white" for="validationDefault01">Title</label>
+                  <input type="text" class="form-control Tdo" placeholder="Title" id="validationDefault01"  required>
+                </div>
+                <div>
+                  <label class="text-white" for="validationDefault02">Description</label>
+                  <input type="text" class="form-control desp" placeholder="Description" id="validationDefault02" >
+                </div>
               </div>
-            </div>
-            
+              <div>
+                <div>
+                  <label class="text-white" for="validationDefault03">Date</label>
+                  <input type="datetime-local" class="form-control dte"  placeholder="YYYY-MM-DD" id="validationDefault03" required>
+                </div>
+              </div>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-primary" type="button"  id="button-addon2" data-dismiss="modal" aria-label="Close">Add</button>
+            <button class="btn btn-primary" id="button-addon2" type="submit">Add</button>
+            <button type="button" class="btn btn-secondary titleclose"  data-dismiss="modal">Close</button>
           </div>
+        </form>
         </div>
       </div>
     </div>   
@@ -86,13 +92,52 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title text-white" id="exampleModalLongTitle">Edit</h5>
+            <h5 class="modal-title text-white" id="exampleModalLongTitle">Edit Your List</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span class="text-white" aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <div class="input-group addtaskasd mb-3">
+
+
+
+            <form>
+              <div>
+                <div>
+                  <label class="text-white" for="validationDefault01">Title</label>
+                  <input type="text" id="editinput" class="form-control" placeholder="Title" id="validationDefault01"  required>
+                </div>
+                <div>
+                  <label class="text-white" for="validationDefault02">Description</label>
+                  <input type="text" id="editdis" class="form-control" placeholder="Description" id="validationDefault02" >
+                </div>
+              </div>
+              <div>
+                <div>
+                  <label class="text-white" for="validationDefault03">Date</label>
+                  <input type="datetime-local" id="editdate" class="form-control" placeholder="YYYY-MM-DD" id="validationDefault03" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="text-white" for="exampleFormControlSelect1">Status</label>
+                <select class="form-control status" id="exampleFormControlSelect1">
+                  <option id="stIDto" class="todost" value="todoSt">Todo</option>
+                  <option id="stIDdp" class="doingst" value="doingSt" >Doing</option>  
+                  <option id="stIDdt" class="donest" value="doneSt">Done</option>
+                </select>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" id="button-addon2add" type="button">Save Changes</button>
+            <button type="button" class="btn btn-secondary titleclose"  data-dismiss="modal">Close</button>
+          </div>
+        </form>
+
+
+
+
+
+            <!-- <div class="input-group addtaskasd mb-3">
               
                 <input type="text" id="editinput" class="form-control" placeholder="Edit">
 
@@ -117,11 +162,11 @@
                   <option id="stIDdp" class="doingst" value="doingSt" >Doing</option>  
                   <option id="stIDdt" class="donest" value="doneSt">Done</option>
                 </select>
-              </div>
+              </div> -->
           </div>
-          <div class="modal-footer">
+          <!-- <div class="modal-footer">
             <button class="btn btn-primary" type="button" id="button-addon2add" data-dismiss="modal" aria-label="Close">edit</button>
-          </div>
+          </div> -->
         </div>
       </div>
 </div>

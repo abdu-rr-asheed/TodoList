@@ -3,8 +3,10 @@ $( function() {
   $( ".todoclass" ).sortable();
   $( ".doingclass" ).sortable();
   $(".doneclass").sortable();
+  $( "#datepicker" ).datepicker();
+  $( "#datepicker2" ).datepicker();
 });
-$( "#datepicker" ).datepicker();
+
 
 // Add input
 let todoinput = document.querySelector(".Tdo");
@@ -21,6 +23,9 @@ let dteEditinput = document.querySelector("#editdate");
 
 //* Edit button
 let editbtn = document.querySelector("#button-addon2add");
+
+//* Title Close button
+let titleclose = document.querySelector(".titleclose");
 
 //* Status Drop down button
 let status = document.querySelector(".status");
@@ -93,7 +98,11 @@ function refreshArr() {
 addbtn.addEventListener('click', addbutton);
 
 function addbutton() {
-  if (todoinput.value !== '') {
+
+  if (todoinput.value.trim() == '' || dteinput.value.trim() == '' ) {
+    alert("Must Insert Title and Date");
+  }
+  if (todoinput.value.trim() !== '' && dteinput.value.trim() !== '' ) {
     listTodo = {
       todo: "",
       Description: "",
@@ -112,6 +121,7 @@ function addbutton() {
     todoinput.value = '';
     despinput.value = '';
     dteinput.value = '';
+    todoinput.focus();
     refreshArr();
   }
 }
@@ -128,9 +138,7 @@ function editIconbutton(e) {
   despEditinput.value = todoArr[checkid].Description;
   dteEditinput.value = todoArr[checkid].date;
   status.value = todoArr[checkid].status;
-
-  console.log(status.value)
-
+  
   if (status.value == "todoSt") {
     document.getElementById("stIDto").style.display = "none";
     document.getElementById("stIDdt").style.display = "none";
@@ -144,8 +152,12 @@ function editIconbutton(e) {
 
 editbtn.addEventListener('click', editbutton);
 
-  function editbutton() {
-
+function editbutton() {
+  
+  if (TodoEditnput.value.trim() == '' || dteEditinput.value.trim() == '' ) {
+    alert("Must Insert Title and Date");
+  }
+  if (TodoEditnput.value.trim() !== '' && dteEditinput.value.trim() !== '') {
     todoArr[checkid].todo = TodoEditnput.value;
     todoArr[checkid].Description = despEditinput.value;
     todoArr[checkid].date = dteEditinput.value;
@@ -155,20 +167,28 @@ editbtn.addEventListener('click', editbutton);
     doingclass.innerHTML = '';
     doneclass.innerHTML = '';
     refreshArr();
-
+  }
+    
+    
+  }
+  
+  // Todo Delete Button 
+  function delbutton() {
+    if (confirm("Are You Delete your Task")) {
+      let parent = this.parentElement;
+      todoArr.splice(parent.id, 1);
+      
+      todoclass.innerHTML = '';
+      doingclass.innerHTML = '';
+      doneclass.innerHTML = '';
+      refreshArr();
+    }
+  }
+  
+titleclose.addEventListener('click', titClose);
+  
+function titClose() {
+  todoinput.value = '';
+  despinput.value = '';
+  dteinput.value = '';
 }
-
-// Todo Delete Button 
-function delbutton() {
-  let parent = this.parentElement;
-  todoArr.splice(parent.id, 1);
-
-  todoclass.innerHTML = '';
-  doingclass.innerHTML = '';
-  doneclass.innerHTML = '';
-  refreshArr();
-}
-
-
-
-
