@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   background: url(/image/bg.jpg);
 }
@@ -9,21 +13,22 @@ button:focus {
 li {
   list-style: none;
 }
+.col-md-4.col-12 {
+  z-index: 1;
+}
 .box,
 .box li,
 .modal-content {
   position: relative;
   width: 100%;
-  height: 600px;
+  min-height: 100px;
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   backdrop-filter: blur(10px);
   margin: 0 auto;
   padding: 20px;
-
   border: 2px solid #fff;
-  /* overflow-x: hidden; */
 }
 .modal-content {
   height: auto;
@@ -31,8 +36,10 @@ li {
   border: 2px solid #fff;
 }
 .box ul {
-  height: 540px;
-  overflow-x: hidden;
+  min-height: 540px;
+}
+.box::-webkit-scrollbar {
+  display: none;
 }
 .box ul::-webkit-scrollbar {
   display: none;

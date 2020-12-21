@@ -1,8 +1,10 @@
 //jquary
 $( function() {
-  $( ".todoclass" ).sortable();
-  $( ".doingclass" ).sortable();
-  $(".doneclass").sortable();
+  $( ".col-md-4 > .box > ul" ).sortable({
+    connectWith: ".col-md-4 .box ul",
+    cursor: "move",
+    accept: ".col-md-4 .box ul",
+  });
 });
 
 
