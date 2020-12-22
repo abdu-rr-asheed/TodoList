@@ -1,7 +1,16 @@
 //jquary
 $( function() {
-  $( ".box > ul" ).sortable({
-    connectWith: ".box ul",
+  $(".box > .todoclass").sortable({
+    connectWith: ".box > .doingclass",
+    cursor: "move"
+  });
+  $(".box > .doingclass").sortable({
+    connectWith: ".box > .todoclass",
+    connectWith: ".box > .doneclass",
+    cursor: "move"
+  });
+  $(".box > .doneclass").sortable({
+    connectWith: ".box > .todoclass",
     cursor: "move"
   });
 });
