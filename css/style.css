@@ -1,7 +1,26 @@
 * {
   margin: 0;
   padding: 0;
+  cursor: url(/image/direct-selection.png), auto !important;
 }
+
+.container {
+  background-color: #333;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.draggable {
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid black;
+  cursor: move;
+}
+
+.draggable.dragging {
+  opacity: 0.5;
+}
+
 body {
   background: url(/image/bg.jpg);
 }
