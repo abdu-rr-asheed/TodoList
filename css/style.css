@@ -26,6 +26,7 @@ li {
   margin: 0 auto;
   padding: 20px;
   border: 2px solid #fff;
+  z-index: 1 !important;
 }
 .modal-content {
   height: auto;
@@ -34,6 +35,10 @@ li {
 }
 .box ul {
   min-height: 540px;
+  z-index: 2;
+}
+.box li {
+  z-index: 15 !important;
 }
 .box::-webkit-scrollbar {
   display: none;
@@ -107,5 +112,14 @@ p:nth-child(3) {
 }
 
 .layer {
-  z-index: 0;
+  z-index: 17 !important;
+}
+.layer2 {
+  z-index: 15 !important;
+}
+.layer3 {
+  z-index: 13 !important;
+}
+.layer li {
+  z-index: 20 !important;
 }

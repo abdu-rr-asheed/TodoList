@@ -1,7 +1,7 @@
 //jquary
 $( function() {
-  $( ".col-md-4 > .box > ul" ).sortable({
-    connectWith: ".col-md-4 .box ul",
+  $( ".box > ul" ).sortable({
+    connectWith: ".box ul",
     cursor: "move"
   });
 });
