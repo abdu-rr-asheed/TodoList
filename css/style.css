@@ -17,7 +17,7 @@
   cursor: move;
 }
 
-.draggable.dragging {
+.dragls.dragging {
   opacity: 0.5;
 }
 
