@@ -2,15 +2,36 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
+var dragged;
 function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
+  dragged = ev.target;
 }
 
 function drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
+  if(ev.target.className.split(" ")[0] === "todoclass"){
+    dragged.parentNode.removeChild( dragged );
+    ev.target.appendChild( dragged );
+    //find and delete 
+  }
+  if(ev.target.className.split(" ")[0] === "doingclass"){
+    dragged.parentNode.removeChild( dragged );
+    ev.target.appendChild( dragged );
+    //find and delete 
+  }
+  if(ev.target.className.split(" ")[0] === "doneclass"){
+    dragged.parentNode.removeChild( dragged );
+    ev.target.appendChild( dragged );
+    //find and delete 
+  }
 }
+document.getElementById("todoid").addEventListener("dragover", allowDrop);
+document.getElementById("todoid").addEventListener("drop", drop);
+
+document.getElementById("doingid").addEventListener("dragover", allowDrop);
+document.getElementById("doingid").addEventListener("drop", drop);
+
+document.getElementById("doneEid").addEventListener("dragover", allowDrop);
+document.getElementById("doneEid").addEventListener("drop", drop);
 
 // Add input
 let titleinput = document.querySelector(".Tdo");
@@ -63,7 +84,7 @@ function refreshArr() {
     newli.id = (i);
     newli.draggable = true;
     newli.className = "dragls";
-    // newli.addEventListener("dragstart", drag);
+    newli.addEventListener("dragstart", drag);
     
     //Apend element
     newli.appendChild(newh5);
@@ -96,6 +117,7 @@ function refreshArr() {
 
     //Edit Click icon Event 
     newedit.addEventListener('click', editIconbutton);
+
   }
   
 }
