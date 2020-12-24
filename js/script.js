@@ -80,7 +80,6 @@ function refreshArr() {
 
     //Edit Click icon Event 
     newedit.addEventListener('click', editIconbutton);
-
     
   }
 

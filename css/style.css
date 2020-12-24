@@ -3,13 +3,11 @@
   padding: 0;
   cursor: url(/image/direct-selection.png), auto !important;
 }
-
-body {
-  margin: 0;
-}
-
 body {
   background: url(/image/bg.jpg);
+}
+.plus {
+  background: transparent;
 }
 
 button:focus {
