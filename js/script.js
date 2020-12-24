@@ -1,58 +1,3 @@
- //!=====================================================================================
- var dragged;
-
- /* events fired on the draggable target */
- document.addEventListener("drag", function(event) {
- 
- }, false);
- 
- document.addEventListener("dragstart", function(event) {
-   // store a ref. on the dragged elem
-   dragged = event.target;
-   // make it half transparent
-   event.target.style.opacity = .5;
- }, false);
- 
- document.addEventListener("dragend", function(event) {
-   // reset the transparency
-   event.target.style.opacity = "";
- }, false);
- 
- /* events fired on the drop targets */
- document.addEventListener("dragover", function(event) {
-   // prevent default to allow drop
-   event.preventDefault();
- }, false);
- 
- document.addEventListener("dragenter", function(event) {
-   // highlight potential drop target when the draggable element enters it
-   if (event.target.className == "dropzone") {
-     event.target.style.background = "purple";
-   }
- 
- }, false);
- 
- document.addEventListener("dragleave", function(event) {
-   // reset background of potential drop target when the draggable element leaves it
-   if (event.target.className == "dropzone") {
-     event.target.style.background = "";
-   }
- 
- }, false);
- 
- document.addEventListener("drop", function(event) {
-   // prevent default action (open as link for some elements)
-   event.preventDefault();
-   // move dragged elem to the selected drop target
-   if (event.target.className == "dropzone") {
-     event.target.style.background = "";
-     dragged.parentNode.removeChild( dragged );
-     event.target.appendChild( dragged );
-   }
- }, false);
- 
- //!--------------------------------------------------------------------------------------------
-
 // Add input
 let titleinput = document.querySelector(".Tdo");
 let descriptioninput = document.querySelector(".desp");
@@ -80,10 +25,6 @@ let todoclass = document.querySelector(".todoclass")
 let doingclass = document.querySelector(".doingclass")
 let doneclass = document.querySelector(".doneclass")
 
-var newli = document.createElement('li');
-
-// newli.ondrag(event)
-
 // ! Parent Array (Todo)
 const todoArr = [];
 
@@ -97,7 +38,7 @@ function refreshArr() {
   for (let i = todoArr.length-1 ; i >= 0; i--) {
 
     //Create element
-    
+    var newli = document.createElement('li');
     var newh5 = document.createElement('h5');
     var newdesp = document.createElement('p');
     var newdate = document.createElement('p');
@@ -105,10 +46,7 @@ function refreshArr() {
     var newedit = document.createElement('button');
 
     // li tag id
-    newli.id = (i) + " draggable";
-    // newli.className = "draggable";
-    newli.draggable = true;
-    newli.dragstart = event.dataTransfer.setData('text/plain',null)
+    newli.id = (i);
     
     
     //Apend element
@@ -177,8 +115,6 @@ function addbutton() {
     dateinput.value = '';
     titleinput.focus();
     refreshArr();
-
-    
   }
 }
 
@@ -247,8 +183,7 @@ function editbutton() {
 
   }
     
-    
-  }
+}
   
   // Todo Delete Button 
   function delbutton() {
