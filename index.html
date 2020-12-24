@@ -26,53 +26,40 @@
                   <h3 class="mb-0 text-white">ToDo</h3>
                   <button type="button" class="border-0 btn text-white" data-toggle="modal" data-target="#exampleModalCenter" style="background: transparent;"> <i class="fa fa-plus" aria-hidden="true"></i> </button>
                 </div>
-                <ul class="todoclass  drag  pl-0 mb-0n " id="todoid" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <!-- <ul class="todoclass  drag  pl-0 mb-0" id="todoid"> -->
                   <!-- add todo -->
-                  <li id="0" draggable="true" class="dragls" ondragstart="drag(event)">
-                    <h5>asdasdasd</h5>
-                    <p></p>
-                    <p>Date : 2020-12-24T09:55</p>
-                    <button><i class="fa fa-times"></i></button>
-                    <button><i type="button" class="fa fa-pencil-square-o" data-toggle="modal" data-target="#exampleModalCenter2"> </i></button>
-                </li>
-                <li id="0" draggable="true" class="dragls" ondragstart="drag(event)">
-                  <h5>ssss</h5>
-                  <p></p>
-                  <p>Date : 2020-12-24T09:55</p>
-                  <button><i class="fa fa-times"></i></button>
-                  <button><i type="button" class="fa fa-pencil-square-o" data-toggle="modal" data-target="#exampleModalCenter2"> </i></button>
-              </li>
+                <!-- </ul> -->
+                <ul class="dropzone todoclass  drag  pl-0 mb-0" id="todoid">
+                  <!-- <li id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+                    This div is draggable1
+                  </li> -->
                 </ul>
               </div>
             </div>
             <div class="col-md-4 col-12 mt-md-0 mt-4 ">
               <div class="box layer2">
                 <h3 class="text-center text-white">Doing... </h3>
-                <ul class="doingclass drag   pl-0 mb-0 " id="doingid" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <!-- <ul class="doingclass drag   pl-0 mb-0 " id="doingid" > -->
                   <!-- Doing -->
-                  <li id="0" draggable="true" class="dragls" ondragstart="drag(event)">
-                    <h5>qqqqq</h5>
-                    <p></p>
-                    <p>Date : 2020-12-24T09:55</p>
-                    <button><i class="fa fa-times"></i></button>
-                    <button><i type="button" class="fa fa-pencil-square-o" data-toggle="modal" data-target="#exampleModalCenter2"> </i></button>
-                </li>
+                <!-- </ul> -->
+                <ul class="dropzone doingclass drag   pl-0 mb-0 " id="doingid">
+                  <!-- <li id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+                    This div is draggable2
+                  </li> -->
                 </ul>
               </div>
             </div>
             <div class="col-md-4 col-12 mt-md-0 mt-4 ">
               <div class="box layer3">
                 <h3 class="text-center text-white">Done</h3>
-                <ul class="doneclass drag   pl-0 mb-0 " id="doneEid" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <!-- <ul class="doneclass drag   pl-0 mb-0 " id="doneEid"> -->
                   <!-- done -->
-                  <li id="0" draggable="true" class="dragls" ondragstart="drag(event)">
-                    <h5>asdaeeeeesdasd</h5>
-                    <p></p>
-                    <p>Date : 2020-12-24T09:55</p>
-                    <button><i class="fa fa-times"></i></button>
-                    <button><i type="button" class="fa fa-pencil-square-o" data-toggle="modal" data-target="#exampleModalCenter2"> </i></button>
-                </li>
-                </ul> 
+                <!-- </ul>  -->
+                <ul class="dropzone doneclass drag   pl-0 mb-0 " id="doneEid">
+                  <!-- <li id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+                    This div is draggable3
+                  </li> -->
+                </ul>
               </div>
             </div>
           </div>
@@ -162,6 +149,8 @@
         </div>
       </div>
 </div>
+
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
