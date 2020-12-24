@@ -12,6 +12,7 @@ function drop(ev) {
   ev.target.appendChild(document.getElementById(data));
 }
 
+
 // Add input
 let titleinput = document.querySelector(".Tdo");
 let descriptioninput = document.querySelector(".desp");
