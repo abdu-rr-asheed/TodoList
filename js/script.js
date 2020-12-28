@@ -219,13 +219,12 @@ editbtn.addEventListener('click', editbutton);
 
 function editbutton() {
   
-  if (titleEditnput.value.trim() == '' || dateEditnput.value.trim() == '' ) {
-    alert("Must Insert Title and Date");
-  }
+    if (titleEditnput.value.trim() == '' || dateEditnput.value.trim() == '' ) {
+      alert("Must Insert Title and Date");
+    }
 
-  var letters = /^[0-9a-zA-Z]+$/;
-  if(titleinput.value.match(letters)){
-    
+    var letters = /^[0-9a-zA-Z]+$/;
+  if(titleEditnput.value.match(letters)){
     if (titleEditnput.value.trim() !== '' && dateEditnput.value.trim() !== '') {
       todoArr[checkid].todo = titleEditnput.value;
       todoArr[checkid].Description = descriptionEditnput.value;
@@ -237,13 +236,18 @@ function editbutton() {
       doneclass.innerHTML = '';
       refreshArr();
 
+      alert("Successfully updated");
+
+    } 
+
   }
   else
   {
     alert('Please input alphanumeric characters only');
-    titleinput.value = '';
-    titleinput.focus();
+    titleEditnput.value = '';
+    titleEditnput.focus();
   }
+  
 
     
     if (todoArr[checkid].status == "todoSt") {
@@ -260,10 +264,9 @@ function editbutton() {
       document.getElementById("stIDdt").style.display = "none";
     }
     
-    alert("Successfully updated");
-  }
     
-}
+  }
+ 
   
   // Todo Delete Button 
   function delbutton() {
