@@ -25,6 +25,10 @@ let todoclass = document.querySelector(".todoclass")
 let doingclass = document.querySelector(".doingclass")
 let doneclass = document.querySelector(".doneclass")
 
+//drag and drop class
+const draggables = document.querySelectorAll('.draggable')
+const containers = document.querySelectorAll('.containerul')
+
 // ! Parent Array (Todo)
 const todoArr = [];
 
@@ -84,9 +88,6 @@ function refreshArr() {
     newedit.addEventListener('click', editIconbutton);
 
     //! Drag and Drop =================================================================
-
-    const draggables = document.querySelectorAll('.draggable')
-    const containers = document.querySelectorAll('.containerul')
 
     draggables.forEach(draggable => {
       draggable.addEventListener('dragstart', () => {
