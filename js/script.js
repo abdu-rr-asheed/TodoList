@@ -169,6 +169,7 @@ function addbutton() {
     descriptioninput.value = '';
     dateinput.value = '';
     titleinput.focus();
+    alert("Todo " + listTodo.todo + " is created for " + listTodo.date);
     refreshArr();
   }
 }
@@ -235,14 +236,14 @@ function editbutton() {
       document.getElementById("stIDdt").style.display = "none";
     }
     
-    alert("updated");
+    alert("Successfully updated");
   }
     
 }
   
   // Todo Delete Button 
   function delbutton() {
-    if (confirm("Are You Delete your Task")) {
+    if (confirm("Are you sure you want to delete this todo?")) {
       let parent = this.parentElement;
       todoArr.splice(parent.id, 1);
       
