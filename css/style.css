@@ -81,35 +81,27 @@ p:nth-child(3) {
 .doneclass {
   position: relative;
 }
-.todoclass button,
-.doingclass button,
-.doneclass button {
+.del,
+.edit {
   position: absolute;
   background: none;
   border: none;
   color: #fff;
 }
-.todoclass button:last-child,
-.doingclass button:last-child,
-.doneclass button:last-child {
+.edit {
   top: 4px;
   right: 4px;
   color: rgb(0, 0, 255);
 }
-.todoclass button:nth-last-child(2),
-.doingclass button:nth-last-child(2),
-.doneclass button:nth-last-child(2) {
+.del {
   bottom: 7px;
   right: 7px;
   color: #990000;
 }
-.todoclass button:nth-last-child(3),
-.doingclass button:nth-last-child(3),
-.doneclass button:nth-last-child(3) {
-  top: 4px;
-  right: 26px;
-  color: #d9038b;
+.doneclass .edit {
+  display: none;
 }
+
 .form-control {
   color: #000000;
   background-color: #ffffffb3;

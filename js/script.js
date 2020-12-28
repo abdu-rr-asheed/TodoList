@@ -56,7 +56,9 @@ function refreshArr() {
     newli.appendChild(newdesp);
     newli.appendChild(newdate);
     newli.appendChild(newdel);
+    newdel.className = "del";
     newli.appendChild(newedit);
+    newedit.className = "edit";
 
     //Delete and Edit innerHtml
     newdel.innerHTML = '<i class="fa fa-times"></i>';
@@ -190,10 +192,10 @@ function editIconbutton() {
   var checkColumeid = this.parentElement.parentElement.id;
 
   if (checkColumeid == "todoid") {
-    document.getElementById("stIDto").style.display = "none";
     document.getElementById("stIDdt").style.display = "none";
   } else if (checkColumeid == "doingid") {
     document.getElementById("stIDto").style.display = "block";
+    document.getElementById("stIDdp").style.display = "block";
     document.getElementById("stIDdt").style.display = "block";
   }
 }
