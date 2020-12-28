@@ -102,7 +102,7 @@ function refreshArr() {
       }else if (draggable.parentElement.id == 'doneEid') {
         todoArr[draggable.id].status = 'doneSt';
       }else if (draggable.parentElement.id == 'todoid') {
-        todoArr[draggable.id].status = 'todost';
+        todoArr[draggable.id].status = 'todoSt';
       }
       draggable.classList.remove('dragging')
       })
