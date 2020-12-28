@@ -1,10 +1,10 @@
 * {
   margin: 0;
   padding: 0;
-  cursor: url(/image/direct-selection.png), auto !important;
+  cursor: url(../image/direct-selection.png), auto !important;
 }
 body {
-  background: url(/image/bg.jpg);
+  background: url(../image/bg.jpg);
 }
 .plus {
   background: transparent;
