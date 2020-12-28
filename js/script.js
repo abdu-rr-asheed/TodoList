@@ -94,6 +94,14 @@ function refreshArr() {
   })
 
   draggable.addEventListener('dragend', () => {
+    // console.log(draggable.parentElement.id);
+    if (draggable.parentElement.id == 'doingid') {
+      todoArr[draggable.id].status = 'doingSt';
+    }else if (draggable.parentElement.id == 'doneEid') {
+      todoArr[draggable.id].status = 'doneSt';
+    }else if (draggable.parentElement.id == 'todoid') {
+      todoArr[draggable.id].status = 'todost';
+    }
     draggable.classList.remove('dragging')
   })
 })
@@ -210,8 +218,7 @@ function editbutton() {
     doneclass.innerHTML = '';
     refreshArr();
 
-    alert("updated");
-
+    
     if (todoArr[checkid].status == "todoSt") {
       document.getElementById("stIDto").style.display = "block";
       document.getElementById("stIDdp").style.display = "block";
@@ -225,7 +232,8 @@ function editbutton() {
       document.getElementById("stIDdp").style.display = "block";
       document.getElementById("stIDdt").style.display = "none";
     }
-
+    
+    alert("updated");
   }
     
 }
