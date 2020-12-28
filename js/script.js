@@ -149,29 +149,41 @@ function addbutton() {
   if (titleinput.value.trim() == '' || dateinput.value.trim() == '' ) {
     alert("Must Insert Title and Date");
   }
-  if (titleinput.value.trim() !== '' && dateinput.value.trim() !== '' ) {
-    listTodo = {
-      todo: "",
-      Description: "",
-      date: "",
-      status: "todoSt"
-    };
-    
-    listTodo.todo = titleinput.value;
-    listTodo.Description = descriptioninput.value;
-    listTodo.date = dateinput.value;
-    
-    todoArr.push(listTodo)
-    todoclass.innerHTML = '';
-    doingclass.innerHTML = '';
-    doneclass.innerHTML = '';
-    titleinput.value = '';
-    descriptioninput.value = '';
-    dateinput.value = '';
-    titleinput.focus();
-    alert("Todo " + listTodo.todo + " is created for " + listTodo.date);
-    refreshArr();
+  
+  var letters = /^[0-9a-zA-Z]+$/;
+  if(titleinput.value.match(letters)){
+    if (titleinput.value.trim() !== '' && dateinput.value.trim() !== '' ) {
+      listTodo = {
+        todo: "",
+        Description: "",
+        date: "",
+        status: "todoSt"
+      };
+      
+      listTodo.todo = titleinput.value;
+      listTodo.Description = descriptioninput.value;
+      listTodo.date = dateinput.value;
+      
+      todoArr.push(listTodo)
+      todoclass.innerHTML = '';
+      doingclass.innerHTML = '';
+      doneclass.innerHTML = '';
+      titleinput.value = '';
+      descriptioninput.value = '';
+      dateinput.value = '';
+      titleinput.focus();
+      alert("Todo " + listTodo.todo + " is created for " + listTodo.date);
+      refreshArr();
+    }
   }
+  else
+  {
+    alert('Please input alphanumeric characters only');
+    titleinput.value = '';
+    titleinput.focus();
+  }
+
+  
 }
 
 // cheaking ID
@@ -210,16 +222,28 @@ function editbutton() {
   if (titleEditnput.value.trim() == '' || dateEditnput.value.trim() == '' ) {
     alert("Must Insert Title and Date");
   }
-  if (titleEditnput.value.trim() !== '' && dateEditnput.value.trim() !== '') {
-    todoArr[checkid].todo = titleEditnput.value;
-    todoArr[checkid].Description = descriptionEditnput.value;
-    todoArr[checkid].date = dateEditnput.value;
-    todoArr[checkid].status = status.value;
+
+  var letters = /^[0-9a-zA-Z]+$/;
+  if(titleinput.value.match(letters)){
     
-    todoclass.innerHTML = '';
-    doingclass.innerHTML = '';
-    doneclass.innerHTML = '';
-    refreshArr();
+    if (titleEditnput.value.trim() !== '' && dateEditnput.value.trim() !== '') {
+      todoArr[checkid].todo = titleEditnput.value;
+      todoArr[checkid].Description = descriptionEditnput.value;
+      todoArr[checkid].date = dateEditnput.value;
+      todoArr[checkid].status = status.value;
+      
+      todoclass.innerHTML = '';
+      doingclass.innerHTML = '';
+      doneclass.innerHTML = '';
+      refreshArr();
+
+  }
+  else
+  {
+    alert('Please input alphanumeric characters only');
+    titleinput.value = '';
+    titleinput.focus();
+  }
 
     
     if (todoArr[checkid].status == "todoSt") {
