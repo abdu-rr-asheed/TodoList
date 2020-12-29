@@ -1,3 +1,6 @@
+$('.dte').datepicker({
+  minDate : 0
+});
 // Add input
 let titleinput = document.querySelector(".Tdo");
 let descriptioninput = document.querySelector(".desp");
@@ -152,7 +155,12 @@ function addbutton() {
   
   var letters = /^[0-9a-zA-Z]+$/;
   if(titleinput.value.match(letters)){
-    if (titleinput.value.trim() !== '' && dateinput.value.trim() !== '' ) {
+    if (titleinput.value.trim() !== '' && dateinput.value.trim() !== '') {
+      
+      
+
+
+
       listTodo = {
         todo: "",
         Description: "",
@@ -163,7 +171,17 @@ function addbutton() {
       listTodo.todo = titleinput.value;
       listTodo.Description = descriptioninput.value;
       listTodo.date = dateinput.value;
-      
+
+      console.log(listTodo.date);
+      var d = new Date();
+      console.log(d);
+      if (listTodo.date == d) {
+
+        console.log("asd");
+        
+      }
+
+
       todoArr.push(listTodo)
       todoclass.innerHTML = '';
       doingclass.innerHTML = '';
