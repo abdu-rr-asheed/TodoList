@@ -218,6 +218,11 @@ function editIconbutton() {
 editbtn.addEventListener('click', editbutton);
 
 function editbutton() {
+
+      var checktitle = todoArr[checkid].todo;
+      var checkDes = todoArr[checkid].Description;
+      var checkdate = todoArr[checkid].date;
+      var checkst = todoArr[checkid].status;
   
     if (titleEditnput.value.trim() == '' || dateEditnput.value.trim() == '' ) {
       alert("Must Insert Title and Date");
@@ -226,6 +231,8 @@ function editbutton() {
     var letters = /^[0-9a-zA-Z]+$/;
   if(titleEditnput.value.match(letters)){
     if (titleEditnput.value.trim() !== '' && dateEditnput.value.trim() !== '') {
+      
+      
       todoArr[checkid].todo = titleEditnput.value;
       todoArr[checkid].Description = descriptionEditnput.value;
       todoArr[checkid].date = dateEditnput.value;
@@ -236,7 +243,11 @@ function editbutton() {
       doneclass.innerHTML = '';
       refreshArr();
 
-      alert("Successfully updated");
+      if (todoArr[checkid].todo !== checktitle || todoArr[checkid].Description !== checkDes || todoArr[checkid].date !== checkdate || todoArr[checkid].status !== checkst) {
+        alert("Successfully updated");
+        
+      }
+
 
     } 
 
