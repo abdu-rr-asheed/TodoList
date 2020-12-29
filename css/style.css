@@ -23,7 +23,7 @@ li {
   position: relative;
   width: 100%;
   min-height: 100px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(180, 175, 175, 0.05);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   backdrop-filter: blur(10px);
@@ -38,7 +38,7 @@ li {
   border: 2px solid #fff;
 }
 .box ul {
-  min-height: 540px;
+  min-height: 70vh;
   z-index: 2;
 }
 .box li {
@@ -56,17 +56,14 @@ li {
   border: none;
   background: rgb(255 255 255 / 52%);
 }
+
 .box h5 {
   text-transform: capitalize;
-  color: #1719a7;
-}
-.box h5 {
-  text-transform: capitalize;
-  color: #1719a7;
+  color: #000;
 }
 p {
   text-transform: capitalize;
-  color: #202279;
+  color: #004c4e;
   margin-bottom: 5px;
   word-wrap: break-word;
 }
@@ -91,7 +88,7 @@ p:nth-child(3) {
 .edit {
   top: 4px;
   right: 4px;
-  color: rgb(0, 0, 255);
+  color: #000;
 }
 .del {
   bottom: 7px;

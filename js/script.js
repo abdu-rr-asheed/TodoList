@@ -245,7 +245,6 @@ function editbutton() {
 
       if (todoArr[checkid].todo !== checktitle || todoArr[checkid].Description !== checkDes || todoArr[checkid].date !== checkdate || todoArr[checkid].status !== checkst) {
         alert("Successfully updated");
-        
       }
 
 
