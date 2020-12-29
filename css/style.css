@@ -111,3 +111,8 @@ p:nth-child(3) {
 .draggable.dragging {
   opacity: 0.5;
 }
+
+#ui-datepicker-div {
+  z-index: 210000000000000000 !important;
+  background: white;
+}

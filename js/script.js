@@ -1,6 +1,9 @@
 $('.dte').datepicker({
   minDate : 0
 });
+$('#editdate').datepicker({
+  minDate : 0
+});
 // Add input
 let titleinput = document.querySelector(".Tdo");
 let descriptioninput = document.querySelector(".desp");
